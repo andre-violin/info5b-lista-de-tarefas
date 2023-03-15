@@ -1,8 +1,19 @@
-function Item({ conteudo, prazo }) {
+import { useState } from 'react';
+
+function Item({ item }) {
+	const { id, conteudo, feito } = item;
+
+	const [marcar, setFeito] = useState(feito);
+
 	return (
-		<li>
-			{conteudo} - {prazo}
-		</li>
+		<div>
+			<span style={{ textDecoration: marcar ? 'line-through' : '' }}>
+				{id} - {conteudo}
+			</span>
+			<button onClick={() => setFeito(!marcar)}>
+				{marcar ? 'Desmarcar' : 'Marcar'}
+			</button>
+		</div>
 	);
 }
 
