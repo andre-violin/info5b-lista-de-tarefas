@@ -1,11 +1,13 @@
+import { items } from '../../dados/memoria_local';
 import Item from './Item';
+
 function Lista() {
 	return (
-		<ul>
-			<Item conteudo="Fazer atividade PTAC3" prazo="1 semana" />
-			<Item conteudo="Descansar" prazo="15h" />
-			<Item conteudo="Dormir" prazo="8h" />
-		</ul>
+		<div>
+			{items.map((item) => {
+				return <Item key={item.id} item={item} />;
+			})}
+		</div>
 	);
 }
 
